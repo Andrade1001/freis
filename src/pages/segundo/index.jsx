@@ -1,12 +1,23 @@
+import { useState } from 'react';
 import './index.scss'
 
 import { Link } from 'react-router-dom'
 
 export default function Segundo() {
+
+    const[num1, setNum1] = useState(0)
+    const[res, setres] = useState(0)
+
+    function Converter(){
+        let gramas = Number(num1)
+        let conversao = gramas / 1000
+        setres(conversao)
+    }
+
     return (
 
         <div className='exercicio2'>
-
+            
 
             <header>
 
@@ -50,17 +61,17 @@ export default function Segundo() {
                 <div className='caixa'>
 
                     <label htmlFor="order"><b>Valor em grama</b></label>
-                    <input type="text"  placeholder='0'/>
+                    <input type="text"  value={num1} onChange={e => setNum1(e.target.value)}/>
 
                     <div className='botao'>
                      
-                     <button>Executar</button>
+                     <button onClick={Converter}>Executar</button>
 
                     </div>
 
                 </div>
 
-                <p className='p'><b>Resultado: O total é 0.00</b></p>
+                <p className='p'><b>Resultado: O total é {res}</b></p>
 
                  
 

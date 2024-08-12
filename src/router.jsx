@@ -12,7 +12,7 @@ import Sexto from './pages/sexto'
 import Setimo from './pages/setimo';
 import Oitavo from './pages/oitavo';
 import Nono from './pages/nono';
-import Decimo from './decimo';
+import Decimo from './pages/decimo';
 
 export default function Navegacao() {
 

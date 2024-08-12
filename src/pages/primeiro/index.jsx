@@ -5,7 +5,21 @@ import { Link } from 'react-router-dom'
 
 export default function Primeiro() {
 
+    const[num1, setNum1] = useState(0)
+    const[cupom, setCupom] = useState(100)
+    const[res, setres] = useState(0)
     
+    function Compra(){
+        let valor = Number(num1)
+        setres(valor)
+
+        if(cupom == 'ANDRADE100'){
+            let valor = Number(num1) - 100
+            setres(valor)
+        }
+
+    }
+   
     return (
 
         <div className='exercicio1'>
@@ -53,23 +67,23 @@ export default function Primeiro() {
                 <div className='caixa'>
 
                     <label htmlFor="order"><b>Informe o valor do pedido</b></label>
-                    <input type="text"  placeholder='0'/>
+                    <input type="text" value={num1} onChange={e => setNum1(e.target.value)}/>
 
 
                     <div className='um'>  
                         <label htmlFor="order"><b>Informe o valor do Cupom</b></label>
-                        <input type="text"  placeholder='0'/>
+                        <input type="text" placeholder = '0' onChange={ e => setCupom(e.target.value)}/>
                     </div>
 
                     <div className='botao'>
                      
-                     <button>Executar</button>
+                     <button onClick={Compra}>Executar</button>
 
                     </div>
 
                 </div>
 
-                <p className='p'><b>Resultado: O total é R$ 0,00</b></p>
+                <p className='p' ><b>Resultado: O total é R$ {res}</b></p>
 
 
 

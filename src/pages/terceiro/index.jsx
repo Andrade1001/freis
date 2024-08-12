@@ -1,8 +1,35 @@
+import { useState } from 'react';
 import './index.scss'
 
 import { Link } from 'react-router-dom'
 
 export default function Terceiro() {
+    
+    const[acaium, setAcaium] = useState(0)
+    const[acaidois, setAcaidois] = useState(0)
+    const[acaitres, setAcaitres] = useState(0)
+    const[res,setres] = useState(0)
+    
+    function Acai(a1, a2 , a3){
+
+        let qtdAcaiP = acaium
+        let qtdAcaiM = acaidois
+        let qtdAcaiG = acaitres
+
+        let AcaiP = 13.50
+        let AcaiM = 15
+        let AcaiG = 17.50
+
+        let somaP = AcaiP * qtdAcaiP
+        let somaM = AcaiM * qtdAcaiM
+        let somaG = AcaiG * qtdAcaiG
+
+        let total = somaG + somaM + somaP
+
+        setres(total)
+
+        
+    }
     return (
 
         <div className='exercicio3'>
@@ -55,18 +82,18 @@ export default function Terceiro() {
 
                    <div className='um'>
                      <label htmlFor="order"><b>Quantidade pequeno</b></label>
-                        <input type="text" placeholder='0' />
+                        <input type="text" value={acaium} onChange={ e => setAcaium(e.target.value)} />
                     </div> 
 
                     <div className='dois'>
                         <label htmlFor="order"><b>Quantidade medio</b></label>
-                        <input type="text" placeholder='0' />
+                        <input type="text" value={acaidois} onChange={ e => setAcaidois(e.target.value)}/>
                     </div>
 
                     
                     <div className='tres'>
                         <label htmlFor="order"><b>Quantidade grande</b></label>
-                        <input type="text" placeholder='0' />
+                        <input type="text" value={acaitres} onChange={ e => setAcaitres(e.target.value)}/>
                     </div>
 
                 </div>
@@ -74,13 +101,13 @@ export default function Terceiro() {
 
                     <div className='botao'>
 
-                        <button>Executar</button>
+                        <button onClick={Acai}>Executar</button>
 
                     </div>
 
                 </div>
 
-                <p className='p'><b>Resultado: O total é R$ 0,00</b></p>
+                <p className='p'><b>Resultado: O total é R$ {res}</b></p>
 
 
 
