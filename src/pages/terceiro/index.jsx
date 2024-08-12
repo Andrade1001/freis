@@ -107,7 +107,7 @@ export default function Terceiro() {
 
                 </div>
 
-                <p className='p'><b>Resultado: O total é R$ {res}</b></p>
+                <p className='p'><b>Resultado: O valor total é R$ {res}</b></p>
 
 
 
